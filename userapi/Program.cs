@@ -1,5 +1,8 @@
 using Data;
+using Data.DataAccess.EFCore;
 using Microsoft.EntityFrameworkCore;
+using userapi;
+using userapi.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(oBuilder =>
     oBuilder.UseSqlServer("Server=localhost;Database=RPapi;User Id=tnt;Password=1;encrypt=false;"));
+
+#region Repositories
+builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddTransient<IProjectRepository, DeveloperRepository>();
+builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
+#endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

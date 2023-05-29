@@ -90,3 +90,5 @@ C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\refint\userapi.dll
 C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\userapi.pdb
 C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\userapi.genruntimeconfig.cache
 C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\ref\userapi.dll
+C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\userapi.RazorAssemblyInfo.cache
+C:\Users\shahin\RiderProjects\RPAPI\userapi\obj\Debug\net7.0\userapi.RazorAssemblyInfo.cs
