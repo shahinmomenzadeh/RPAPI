@@ -1,10 +1,11 @@
 ﻿using Entity;
+using model.UserDto;
 using userapi.Controllers;
 
 namespace userapi;
 
 
-public interface IProjectRepository : IGenericRepository<User>
+public interface IProjectRepository : IGenericRepository<UserDto>
 {
-    IEnumerable<User> GetPopularDevelopers(int count);
+    List<User> GetPopularDevelopers(int count);
 }
