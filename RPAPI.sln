@@ -1,8 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "userapi", "userapi\userapi.csproj", "{014F70FC-2162-4D4A-9FC3-6869FD3D462A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{014F70FC-2162-4D4A-9FC3-6869FD3D462A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014F70FC-2162-4D4A-9FC3-6869FD3D462A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014F70FC-2162-4D4A-9FC3-6869FD3D462A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014F70FC-2162-4D4A-9FC3-6869FD3D462A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
