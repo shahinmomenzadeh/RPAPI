@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(oBuilder =>
-    oBuilder.UseSqlServer("Server=localhost;Database=newapi;User Id=tnt;Password=1;encrypt=false;"));
+    oBuilder.UseSqlServer("Server=localhost;Database=RPapi;User Id=tnt;Password=1;encrypt=false;"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
