@@ -4,14 +4,77 @@
     "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj": {
+    "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj",
-        "projectName": "userapi",
-        "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj",
+        "projectUniqueName": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\Data.csproj",
+        "projectName": "Data",
+        "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\shahin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\obj\\",
+        "outputPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\shahin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\Entity.csproj",
+        "projectName": "Entity",
+        "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\Entity.csproj",
+        "packagesPath": "C:\\Users\\shahin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\shahin\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,10 +100,87 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj",
+        "projectName": "userapi",
+        "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\userapi.csproj",
+        "packagesPath": "C:\\Users\\shahin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\userapi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\shahin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\shahin\\RiderProjects\\RPAPI\\Data\\Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0-preview.4.23259.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

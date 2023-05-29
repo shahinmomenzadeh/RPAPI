@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "userapi", "userapi\userapi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{792C6A8C-502A-4731-A48A-9489C66458A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{4D9B3BBA-D7D2-4619-9C5A-924AF0795CA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{792C6A8C-502A-4731-A48A-9489C66458A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{792C6A8C-502A-4731-A48A-9489C66458A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{792C6A8C-502A-4731-A48A-9489C66458A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9B3BBA-D7D2-4619-9C5A-924AF0795CA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9B3BBA-D7D2-4619-9C5A-924AF0795CA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9B3BBA-D7D2-4619-9C5A-924AF0795CA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9B3BBA-D7D2-4619-9C5A-924AF0795CA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

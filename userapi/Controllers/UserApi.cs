@@ -1,25 +1,18 @@
 ﻿using Data;
 using Entity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using model.UserDto;
-using NEWAPI.Dto.Todo;
-
-namespace NEWAPI.Controllers;
-
+namespace userapi.Controllers;
 [ApiController]
 [Route("[controller]")]
 public class UserApiController : ControllerBase
 {
-    // DbContext ---> AppDbContext
     private readonly AppDbContext _context; 
     // GET
-
     public UserApiController(AppDbContext context)
     {
         _context = context;
     }
-
     [HttpGet("[action]")]
     public ActionResult<UserDto> GetUsers()
     {
@@ -27,8 +20,6 @@ public class UserApiController : ControllerBase
         
         return Ok(users);
     }
-//     [HttpGet("id:int",Name = "GetUser")] --- >     [HttpGet("[action]/{id:int}")]
-
     [HttpGet("[action]/{id:int}")]
     public ActionResult<UserDto> GetUser(int id)
     {
@@ -45,13 +36,6 @@ public class UserApiController : ControllerBase
         return Ok(user);
     }
 
-    //
-   // [HttpPost]
-    //public IActionResult CreateUser( User userDto )
-    //{
-       // return CreateUser(userDto, null);
-   // }
-
     [HttpPost("[action]")]
     public ActionResult CreateUser([FromBody] User userDto )
     {
@@ -61,7 +45,6 @@ public class UserApiController : ControllerBase
             lastname = userDto.lastname,
             Name = userDto.Name,
            ImageUrl = userDto.ImageUrl,
-           Todos = userDto.Todos
         };
         
         _context.Users.Add(model);
@@ -69,8 +52,7 @@ public class UserApiController : ControllerBase
         _context.SaveChangesAsync();
         return Ok(model);
     }
-
-    //
+    
     [HttpDelete("[action]/{id:int}")]
     public ActionResult<UserDto> DeleteUser(int id)
     { 
