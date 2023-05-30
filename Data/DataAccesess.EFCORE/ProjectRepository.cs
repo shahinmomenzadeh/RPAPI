@@ -11,7 +11,8 @@ public class ProjectRepository : GenericRepository<User>, IProjectRepository
     }
     public List<User> GetPopularDevelopers(int count)
     {
-        return _context.Users.OrderByDescending(d => d).Take(count).ToList();
+        return _context.Users.OrderByDescending(d => d.Id).Take(count).ToList();
     }
    
+    
 }

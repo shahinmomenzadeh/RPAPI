@@ -7,6 +7,7 @@ namespace NEWAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+
 public class UserApiController : ControllerBase
 {
     // DbContext ---> AppDbContext
@@ -18,6 +19,7 @@ public class UserApiController : ControllerBase
         _context = context;
     }
 
+    
     [HttpGet("[action]")]
     public ActionResult<UserDto> GetUsers()
     {
@@ -42,7 +44,9 @@ public class UserApiController : ControllerBase
         }
         return Ok(user);
     }
-    
+
+
+
     [HttpPost("[action]")]
     public ActionResult CreateUser([FromBody] User userDto )
     {

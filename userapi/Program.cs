@@ -17,8 +17,9 @@ builder.Services.AddDbContext<AppDbContext>(oBuilder =>
 
 #region Repositories
 builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-builder.Services.AddTransient<IProjectRepository, DeveloperRepository>();
+//builder.Services.AddTransient<IProjectRepository, DeveloperRepository>();
 builder.Services.AddTransient<IProjectRepository, ProjectRepository>();
+
 #endregion
 
 var app = builder.Build();
