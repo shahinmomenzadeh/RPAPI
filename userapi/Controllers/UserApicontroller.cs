@@ -3,7 +3,6 @@ using Entity;
 using Microsoft.AspNetCore.Mvc;
 using model.UserDto;
 
-
 namespace NEWAPI.Controllers;
 
 [ApiController]
@@ -43,14 +42,7 @@ public class UserApiController : ControllerBase
         }
         return Ok(user);
     }
-
-    //
-   // [HttpPost]
-    //public IActionResult CreateUser( User userDto )
-    //{
-       // return CreateUser(userDto, null);
-   // }
-
+    
     [HttpPost("[action]")]
     public ActionResult CreateUser([FromBody] User userDto )
     {
