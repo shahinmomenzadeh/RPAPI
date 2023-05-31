@@ -1,7 +1,4 @@
-﻿using System.Linq.Expressions;
-
-
-namespace userapi.Controllers;
+﻿namespace userapi.Controllers;
 
 public interface IGenericRepository<T> where T : class
 {

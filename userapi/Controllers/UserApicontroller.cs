@@ -7,11 +7,11 @@ namespace NEWAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserApicontrollerController : ControllerBase
+public class UserApicontroller : ControllerBase
 {
     private IGenericRepository<User> _repository;
 
-    public UserApicontrollerController(IGenericRepository<User> repository)
+    public UserApicontroller(IGenericRepository<User> repository)
     {
         _repository = repository;
     }

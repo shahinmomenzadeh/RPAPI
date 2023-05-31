@@ -15,13 +15,11 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _context = context;
         table = _context.Set<T>();
     }
-
     public void Add(T entity)
     {
         table.Add(entity);
         _context.SaveChanges();
     }
-
     public IEnumerable<T> GetAll()
     {
         return table.ToList();
@@ -37,11 +35,9 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         table.Remove(model);
         _context.SaveChanges();
     }
-    
     public void Update(T entity)
     {
         table.Update(entity);
         _context.SaveChanges();
-
     }
 }
