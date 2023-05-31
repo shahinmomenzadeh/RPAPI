@@ -1,6 +1,5 @@
 ﻿using Entity;
 using Microsoft.AspNetCore.Mvc;
-using userapi;
 using userapi.Controllers;
 
 namespace NEWAPI.Controllers;

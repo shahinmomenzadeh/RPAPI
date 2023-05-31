@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using userapi.Controllers;
 
 namespace Data.DataAccess.EFCore;
@@ -7,7 +6,6 @@ namespace Data.DataAccess.EFCore;
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     private readonly AppDbContext _context;
-    private List<T> _entities = new List<T>();
     private DbSet<T> table = null;
 
     public GenericRepository(AppDbContext context)

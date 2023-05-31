@@ -1,5 +1,4 @@
-﻿using Data.DataAccess.EFCore;
-using Entity;
+﻿using Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data;
