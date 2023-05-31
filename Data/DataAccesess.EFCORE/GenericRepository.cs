@@ -1,42 +1,47 @@
 ﻿using System.Linq.Expressions;
-
+using Microsoft.EntityFrameworkCore;
 using userapi.Controllers;
 
 namespace Data.DataAccess.EFCore;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    protected readonly AppDbContext _context;
+    private readonly AppDbContext _context;
+    private List<T> _entities = new List<T>();
+    private DbSet<T> table = null;
+
     public GenericRepository(AppDbContext context)
     {
         _context = context;
+        table = _context.Set<T>();
     }
+
     public void Add(T entity)
     {
-        _context.Set<T>().Add(entity);
+        table.Add(entity);
+        _context.SaveChanges();
     }
-    public void AddRange(IEnumerable<T> entities)
-    {
-        _context.Set<T>().AddRange(entities);
-    }
-    public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
-    {
-        return _context.Set<T>().Where(expression);
-    }
+
     public IEnumerable<T> GetAll()
     {
-        return _context.Set<T>().ToList();
+        return table.ToList();
     }
+
     public T GetById(int id)
     {
-        return _context.Set<T>().Find(id);
+      return table.Find(id);
     }
-    public void Remove(T entity)
+    public void Delete(int id)
     {
-        _context.Set<T>().Remove(entity);
+        var model = table.Find(id);
+        table.Remove(model);
+        _context.SaveChanges();
     }
-    public void RemoveRange(IEnumerable<T> entities)
+    
+    public void Update(T entity)
     {
-        _context.Set<T>().RemoveRange(entities);
+        table.Update(entity);
+        _context.SaveChanges();
+
     }
 }

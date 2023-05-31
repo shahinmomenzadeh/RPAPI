@@ -1,42 +1,29 @@
-﻿using Data;
-using Entity;
+﻿using Entity;
 using Microsoft.AspNetCore.Mvc;
-using model.UserDto;
+using userapi;
+using userapi.Controllers;
 
 namespace NEWAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-
-public class UserApiController : ControllerBase
+public class UserApicontrollerController : ControllerBase
 {
-    // DbContext ---> AppDbContext
-    private readonly AppDbContext _context; 
-    // GET
+    private IGenericRepository<User> _repository;
 
-    public UserApiController(AppDbContext context)
+    public UserApicontrollerController(IGenericRepository<User> repository)
     {
-        _context = context;
+        _repository = repository;
     }
-
     
-    [HttpGet("[action]")]
-    public ActionResult<UserDto> GetUsers()
-    {
-        var users = _context.Users.ToList();
-        
-        return Ok(users);
-    }
-//     [HttpGet("id:int",Name = "GetUser")] --- >     [HttpGet("[action]/{id:int}")]
-
     [HttpGet("[action]/{id:int}")]
-    public ActionResult<UserDto> GetUser(int id)
+    public ActionResult GetUser(int id)
     {
         if (id == 0)
         {
             return Ok(BadRequest());
         }
-        var user = _context.Users.Find(id);
+        var user = _repository.GetById(id);
 
         if (user == null)
         {
@@ -45,48 +32,60 @@ public class UserApiController : ControllerBase
         return Ok(user);
     }
 
-
-
-    [HttpPost("[action]")]
-    public ActionResult CreateUser([FromBody] User userDto )
+    [HttpGet("api/users")]
+    public IActionResult GetAllUsers()
     {
-        var model = new User()
+        var users = _repository.GetAll();
+        return Ok(users);
+    }
+    [HttpPost]
+    public ActionResult AddUser([FromBody] User userDto)
+    {
+        if (userDto == null)
+        {
+            return BadRequest();
+        }
+
+        var model = new User
         {
             cardid = userDto.cardid,
             lastname = userDto.lastname,
             Name = userDto.Name,
-           ImageUrl = userDto.ImageUrl,
-           
+            ImageUrl = userDto.ImageUrl,
         };
-        
-        _context.Users.Add(model);
-        _context.Users.Add(userDto);
-        _context.SaveChangesAsync();
-        return Ok(model);
-    }
 
-    //
+        try
+        {
+            _repository.Add(model);
+        }
+        catch (Exception ex)
+        {
+          
+            return StatusCode(500, ex.Message);
+        }
+        
+        return CreatedAtAction(nameof(AddUser), new { id = model.Id }, model);
+    }
     [HttpDelete("[action]/{id:int}")]
-    public ActionResult<UserDto> DeleteUser(int id)
+    public ActionResult DeleteUser(int id)
     { 
-        var user = _context.Users.Find(id);
+        var user = _repository.GetById(id);
         if (user == null)
         {
             return NotFound();
         }
-        _context.Users.Remove(user);
-        _context.SaveChangesAsync();
+        _repository.Delete(id);
+        
         return NoContent();
     }
-
     [HttpPut("[action]/{id:int}")]
-    public ActionResult<UserDto> UpdateUser(int id, [FromBody] User userDto)
+    public ActionResult UpdateUser(int id, [FromBody] User userDto)
     {
         if (userDto == null || userDto.Id != id)
         {
             return BadRequest();
         }
-        var todo = _context.Users.FirstOrDefault(t => t.Id == id);
+        var todo = _repository.GetById(id);
         if (todo == null)
         {
             return NotFound();
@@ -95,8 +94,9 @@ public class UserApiController : ControllerBase
         todo.lastname = userDto.lastname;
         todo.cardid = userDto.cardid;
         todo.ImageUrl = userDto.ImageUrl;
-        _context.Users.Update(todo);
-        _context.SaveChanges();
+        _repository.Update(todo);
+        
         return NoContent();
     }
-}
+
+    }
